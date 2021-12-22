@@ -42,6 +42,8 @@ class InboundStreamWrapper {
       ffmpegPath,
       [
         ...(transport ? ['-rtsp_transport', transport] : []), // this must come before `-i [url]`, see #82
+        '-flags',
+        'low_delay',
         '-i',
         url,
         '-f', // force format
